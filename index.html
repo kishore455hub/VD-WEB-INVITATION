@@ -811,24 +811,28 @@ body {
   display: block;
 }
 .gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  columns: 2;
+  column-gap: 12px;
   margin-top: 24px;
 }
+
 .gallery-item {
   border-radius: 14px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  display: inline-block;
+  width: 100%;
 }
 .gallery-item:hover { transform: scale(0.97); }
-.gallery-item:nth-child(even) { margin-top: 20px; }
-.gallery-item svg {
+.gallery-item img {
   width: 100%;
   display: block;
-  height: 160px;
+  border-radius: 14px;
+  height: auto;
 }
 
 /* ========================= */
@@ -989,7 +993,7 @@ footer {
   position: fixed;
   bottom: 80px;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  transform: translateX(-50%) translateY(200px);
   background: var(--rose-dark);
   color: #fff;
   padding: 12px 24px;
@@ -999,8 +1003,15 @@ footer {
   z-index: 9999;
   transition: transform 0.4s ease;
   white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
 }
-.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
 
 </style>
 </head>
@@ -1133,12 +1144,12 @@ footer {
 <div class="couple-illustration hero-couple-zoom" style="position:relative;z-index:2;">
 
     <!-- Couple illustration -->
-    <div class="couple-illustration fade-up">
+    <div class="couple-illustration fade-up" style="width:100%;margin-top:-10px;margin-bottom:-8px;overflow:hidden;">
       <!-- 📸 Replace with your couple photo -->
       <!-- Put your photo in images/couple.jpg -->
       <img src="images/couple.jpg"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-           style="width:100%;display:block;margin-top:-10px;"
+           style="width:130%;display:block;margin-top:30px;margin-left:-12%;object-fit:cover;"
       <div style="display:none;background:#f5e8f0;padding:40px 20px;text-align:center;color:#b5657a;font-family:'Montserrat',sans-serif;font-size:13px;">
       
       </div>
@@ -1219,7 +1230,7 @@ footer {
 
     <p class="couple-member-label slide-left">The Groom</p>
 <h2 class="couple-name slide-left" style="animation-delay:0.2s;">Vara Prasad</h2>
-<p class="couple-parents slide-left" style="animation-delay:0.3s;">Son of Mr. Robert & Mrs. Catherine Anderson</p>
+<p class="couple-parents slide-left" style="animation-delay:0.3s;">Son of Mr. Veera Babu & Mrs. Venkata Lakshmi</p>
 
     <div class="couple-separator fade-up">
       <div class="couple-sep-circle">&amp;</div>
@@ -1227,7 +1238,7 @@ footer {
 
     <p class="couple-member-label slide-right">The Bride</p>
 <h2 class="couple-name slide-right" style="animation-delay:0.2s;">Daya Mani</h2>
-<p class="couple-parents slide-right" style="animation-delay:0.3s;">Daughter of Mr. David & Mrs. Margaret Mitchell</p>
+<p class="couple-parents slide-right" style="animation-delay:0.3s;">Daughter of Mr. Satyanarayana & Mrs. Varalakshm</p>
 
     <!-- Watermark petals background -->
     <div style="position:relative;margin-top:10px;">
@@ -1265,7 +1276,7 @@ footer {
         <p class="event-time">🕙 10:00 AM</p>
         <p class="event-location">📍 Bride's Residence, Rayavaram</p>
         <p class="event-date">Wednesday, May 20, 2026</p>
-        <a href="#" class="event-map-link">View Map →</a>
+        <a href="https://maps.app.goo.gl/yqudoQmi9qU3QQZY7?g_st=aw" class="event-map-link">View Map →</a>
         <div class="event-dress">
           
         </div>
@@ -1327,7 +1338,7 @@ footer {
       <div class="gallery-item fade-up">
         <img src="images/gallery-1.jpg"
              onerror="this.style.background='#e8d4dc';this.style.minHeight='160px';this.alt='📸 gallery-1.jpg'"
-             style="width:100%;height:160px;object-fit:cover;display:block;">
+             style="width:100%;height:200px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-2.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
@@ -1339,7 +1350,7 @@ footer {
       <div class="gallery-item fade-up">
         <img src="images/gallery-3.jpg"
              onerror="this.style.background='#f5d4d4';this.style.minHeight='160px';this.alt='📸 gallery-3.jpg'"
-             style="width:100%;height:160px;object-fit:cover;display:block;">
+             style="width:100%;height:220px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-4.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
@@ -1351,7 +1362,7 @@ footer {
       <div class="gallery-item fade-up">
         <img src="images/gallery-5.jpg"
              onerror="this.style.background='#e8d4e8';this.style.minHeight='160px';this.alt='📸 gallery-5.jpg'"
-             style="width:100%;height:160px;object-fit:cover;display:block;">
+             style="width:100%;height:240px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-6.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
