@@ -212,6 +212,7 @@ body {
 .envelope-wrapper {
   position: relative;
   width: 310px;
+  
   height: 420px;
 }
 
@@ -1027,65 +1028,34 @@ footer {
 <!-- ENVELOPE INTRO       -->
 <!-- ==================== -->
 <div id="envelope-screen" onclick="openEnvelope()">
-  <div class="envelope-wrapper">
-    <div class="envelope-you-invited">You are invited</div>
+  <div class="envelope-wrapper" style="width:100%;height:100%;position:relative;">
 
-    <!-- SVG rose art top-left -->
-    <div class="rose-art" style="top:50px;left:-20px;width:180px;height:200px;">
-      <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g opacity="0.6" stroke="#b5657a" stroke-width="1.2" fill="none">
-          <!-- Rose petals outline -->
-          <ellipse cx="80" cy="110" rx="55" ry="50" transform="rotate(-10 80 110)"/>
-          <ellipse cx="80" cy="110" rx="40" ry="35" transform="rotate(-10 80 110)"/>
-          <ellipse cx="80" cy="110" rx="25" ry="20" transform="rotate(-10 80 110)"/>
-          <!-- Petals -->
-          <path d="M80 60 Q110 75 105 110 Q90 90 80 80 Q70 90 55 110 Q50 75 80 60Z"/>
-          <path d="M30 100 Q55 80 80 95 Q65 105 55 115 Q65 125 80 125 Q55 140 30 120Z"/>
-          <path d="M130 100 Q105 80 80 95 Q95 105 105 115 Q95 125 80 125 Q105 140 130 120Z"/>
-          <path d="M55 145 Q70 120 80 130 Q90 120 105 145 Q90 165 80 155 Q70 165 55 145Z"/>
-          <!-- Stem and leaves -->
-          <path d="M80 165 Q78 185 76 210"/>
-          <path d="M78 175 Q58 168 50 185 Q65 178 78 185"/>
-          <path d="M77 190 Q55 188 48 205 Q63 195 77 200"/>
-          <!-- Buds top right -->
-          <ellipse cx="155" cy="60" rx="12" ry="18" transform="rotate(20 155 60)"/>
-          <ellipse cx="170" cy="80" rx="9" ry="14" transform="rotate(10 170 80)"/>
-          <path d="M155 78 Q165 90 170 94"/>
-          <path d="M150 60 Q148 45 145 35"/>
-          <path d="M150 48 Q162 40 165 30"/>
-        </g>
-      </svg>
+    <!-- Real envelope poster image -->
+    <img src="images/envelope-poster.jpg"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+
+    <!-- Wax seal clickable overlay — positioned on top of the stamp in image -->
+    <div class="wax-seal" onclick="openEnvelope()" style="
+      position:absolute;
+      top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      width:150px;height:150px;
+      background:transparent;
+      cursor:pointer;">
     </div>
 
-    <!-- SVG rose art bottom-right -->
-    <div class="rose-art" style="bottom:80px;right:-20px;width:130px;height:160px;">
-      <svg viewBox="0 0 150 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g opacity="0.5" stroke="#b5657a" stroke-width="1.2" fill="none">
-          <ellipse cx="80" cy="70" rx="40" ry="35" transform="rotate(15 80 70)"/>
-          <ellipse cx="80" cy="70" rx="25" ry="20" transform="rotate(15 80 70)"/>
-          <path d="M80 32 Q105 48 100 80 Q85 60 80 52 Q75 60 60 80 Q55 48 80 32Z"/>
-          <path d="M80 110 Q78 128 76 148"/>
-          <path d="M78 120 Q62 114 56 128 Q68 122 78 128"/>
-          <!-- butterfly -->
-          <path d="M40 140 Q50 125 60 135 Q50 145 40 140Z"/>
-          <path d="M40 140 Q50 155 60 145 Q50 145 40 140Z"/>
-          <path d="M40 140 Q28 128 20 138 Q30 145 40 140Z"/>
-          <path d="M40 140 Q28 152 20 142 Q30 145 40 140Z"/>
-        </g>
-      </svg>
+    <!-- Tap to open text -->
+    <div class="tap-to-open" style="
+      position:absolute;
+      bottom:40px;
+      left:50%;
+      transform:translateX(-50%);">
+      <p>TAP TO OPEN</p>
     </div>
 
-    <!-- Envelope -->
-    <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:290px;height:190px;">
-      <div class="envelope-body">
-        <div class="envelope-flap"></div>
-      </div>
-    </div>
+  </div>
 
-    <!-- Wax seal -->
-    <div class="wax-seal">
-      <span class="seal-text">J&amp;S</span>
-    </div>
+    
 
     <div class="tap-to-open">
       <p>TAP TO OPEN</p>
@@ -1136,7 +1106,13 @@ footer {
   <p class="hero-subtitle hero-text-slide" style="animation-delay:0.2s;">Together with our families</p>
   <h2 class="hero-title hero-text-slide" style="animation-delay:0.4s;">They Are Getting<br>Married</h2>
   <h1 class="hero-names hero-text-slide" style="animation-delay:0.6s;">Vara Prasad <span>&amp;</span> Daya Mani</h1>
-  <div class="hero-monogram hero-text-slide" style="animation-delay:0.8s;">♡</div>
+  <div class="hero-monogram hero-text-slide" style="animation-delay:0.8s;">
+  <img src="images/vd-symbol.png"
+       style="width:70px;height:70px;object-fit:contain;display:block;margin:0 auto;
+              filter:drop-shadow(0 2px 8px rgba(201,168,76,0.4));"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <span style="display:none;font-size:42px;color:#c9a84c;">♡</span>
+</div>
 
 </div>
 
@@ -1149,7 +1125,7 @@ footer {
       <!-- Put your photo in images/couple.jpg -->
       <img src="images/couple.jpg"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-           style="width:130%;display:block;margin-top:30px;margin-left:-12%;object-fit:cover;"
+           style="width:130%;display:block;margin-top:50px;margin-left:-12%;object-fit:cover;"
       <div style="display:none;background:#f5e8f0;padding:40px 20px;text-align:center;color:#b5657a;font-family:'Montserrat',sans-serif;font-size:13px;">
       
       </div>
@@ -1276,7 +1252,7 @@ footer {
         <p class="event-time">🕙 10:00 AM</p>
         <p class="event-location">📍 Bride's Residence, Rayavaram</p>
         <p class="event-date">Wednesday, May 20, 2026</p>
-        <a href="https://maps.app.goo.gl/yqudoQmi9qU3QQZY7?g_st=aw" class="event-map-link">View Map →</a>
+        <a href="https://maps.app.goo.gl/y895JdkHKRV7n7Yv8?g_st=aw" class="event-map-link">View Map →</a>
         <div class="event-dress">
           
         </div>
@@ -1333,7 +1309,6 @@ footer {
     <div class="floral-divider fade-up">✿</div>
 
     <div class="gallery-grid">
-      <!-- Gallery items – color-coded placeholder illustrations -->
       <!-- 📸 images/gallery-1.jpg -->
       <div class="gallery-item fade-up">
         <img src="images/gallery-1.jpg"
@@ -1355,20 +1330,14 @@ footer {
       <!-- 📸 images/gallery-4.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
         <img src="images/gallery-4.jpg"
-             onerror="this.style.background='#f5d4e0';this.style.minHeight='160px';this.alt='📸 gallery-4.jpg'"
+             onerror="this.style.background='#f5d4e0';this.style.minHeight='180px';this.alt='📸 gallery-4.jpg'"
              style="width:100%;height:160px;object-fit:cover;display:block;">
       </div>
-      <!-- 📸 images/gallery-5.jpg -->
-      <div class="gallery-item fade-up">
+      <!-- 📸 images/gallery-5.jpg — full width spanning both columns -->
+      <div class="gallery-item fade-up" style="grid-column: 1 / -1;">
         <img src="images/gallery-5.jpg"
-             onerror="this.style.background='#e8d4e8';this.style.minHeight='160px';this.alt='📸 gallery-5.jpg'"
-             style="width:100%;height:240px;object-fit:cover;display:block;">
-      </div>
-      <!-- 📸 images/gallery-6.jpg -->
-      <div class="gallery-item fade-up" style="margin-top:20px;">
-        <img src="images/gallery-6.jpg"
-             onerror="this.style.background='#f5e0d4';this.style.minHeight='160px';this.alt='📸 gallery-6.jpg'"
-             style="width:100%;height:160px;object-fit:cover;display:block;">
+             onerror="this.style.background='#e8d4e8';this.style.minHeight='300px';this.alt='📸 gallery-5.jpg'"
+             style="width:100%;height:400px;object-fit:cover;display:block;">
       </div>
     </div>
   </section>
