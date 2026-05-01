@@ -1019,6 +1019,19 @@ footer {
   visibility: visible;
 }
 
+/* Finger scroll indicator */
+@keyframes fingerBounce {
+  0%, 100% { transform: translateY(0);    opacity: 1;   }
+  50%       { transform: translateY(10px); opacity: 0.6; }
+}
+
+#finger-indicator {
+  transition: opacity 0.5s ease;
+}
+#finger-indicator.fade-out {
+  opacity: 0 !important;
+}
+
 </style>
 </head>
 <body>
@@ -1075,6 +1088,30 @@ footer {
 <!-- MAIN CONTENT         -->
 <!-- ==================== -->
 <div id="main-content">
+
+  <!-- Finger scroll indicator -->
+<div id="finger-indicator" style="
+  position:fixed;
+  bottom:100px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  pointer-events:none;">
+  <p style="
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#b5657a;
+    text-transform:uppercase;
+    margin:0;
+    opacity:0.8;">Scroll Down</p>
+ <img src="images/finger-pointer.png"
+     style="width:50px;height:auto;animation:fingerBounce 1s ease-in-out infinite;display:block;">
+ </div>
 
   <!-- SOUND BUTTON -->
   <button class="sound-btn" onclick="toggleSound()" id="soundBtn">
@@ -1516,13 +1553,6 @@ footer {
 /* PETALS GENERATOR        */
 /* ====================== */
 
-
-// Preload music as soon as page loads
-window.addEventListener('load', () => {
-  const music = document.getElementById('weddingMusic');
-  music.load();
-});
-
 function createPetals() {
   const container = document.getElementById('petals');
   container.innerHTML = '';
@@ -1584,6 +1614,7 @@ function openEnvelope() {
     // Trigger fade animations
     setTimeout(triggerFadeIns, 100);
     setTimeout(initScratchCard, 300);
+    setTimeout(initFingerIndicator, 100);
   }, 1100);
 }
 
@@ -1782,6 +1813,61 @@ function submitRSVP() {
   document.querySelectorAll('.rsvp-form input, .rsvp-form textarea').forEach(el => el.value = '');
   document.querySelectorAll('.rsvp-form input[type="radio"]').forEach(el => el.checked = false);
 }
+
+/* ========================= */
+/* FINGER SCROLL INDICATOR   */
+/* ========================= */
+function initFingerIndicator() {
+  const finger = document.getElementById('finger-indicator');
+  if (!finger) return;
+
+  let scrollTimer = null;
+  let shown = false;
+  let dismissed = false;
+
+  // Show finger after 3 seconds if user hasn't scrolled
+  scrollTimer = setTimeout(() => {
+    if (!dismissed) {
+      finger.style.display = 'flex';
+      shown = true;
+    }
+  }, 3000);
+
+  // Hide when user starts scrolling
+  window.addEventListener('scroll', () => {
+    if (shown && !dismissed) {
+      dismissed = true;
+      finger.classList.add('fade-out');
+
+      // Remove from DOM after fade
+      setTimeout(() => {
+        finger.style.display = 'none';
+      }, 500);
+    }
+
+    // Clear timer if user scrolls before 3 seconds
+    if (scrollTimer) {
+      clearTimeout(scrollTimer);
+      scrollTimer = null;
+      dismissed = true;
+    }
+  }, { once: false });
+
+  // Also hide on touch start (mobile)
+  window.addEventListener('touchstart', () => {
+    if (scrollTimer) {
+      clearTimeout(scrollTimer);
+      dismissed = true;
+    }
+    if (shown) {
+      finger.classList.add('fade-out');
+      setTimeout(() => {
+        finger.style.display = 'none';
+      }, 500);
+    }
+  }, { once: false });
+}
+
 </script>
 </body>
 </html>
