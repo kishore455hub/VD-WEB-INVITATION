@@ -1092,9 +1092,9 @@ footer {
   <!-- Finger scroll indicator -->
 <div id="finger-indicator" style="
   position:fixed;
-  bottom:100px;
+  top:50%;
   left:50%;
-  transform:translateX(-50%);
+  transform:translate(-50%, -50%);
   z-index:999;
   display:none;
   flex-direction:column;
@@ -1498,8 +1498,8 @@ footer {
     <h2 class="rsvp-title">RSVP</h2>
     <div class="floral-divider" style="margin:0 20px 8px;">✿</div>
     <p class="rsvp-subtitle">We would be honored by your presence as we begin our new life together.</p>
-
- <form class="rsvp-form" name="rsvp" method="POST" data-netlify="true">
+<form class="rsvp-form" name="rsvp" method="POST" data-netlify="true" action="/"></form>
+ 
   <input type="hidden" name="form-name" value="rsvp">
 
   <div class="form-group">
