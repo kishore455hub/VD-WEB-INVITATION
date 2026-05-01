@@ -1089,29 +1089,7 @@ footer {
 <!-- ==================== -->
 <div id="main-content">
 
-  <!-- Finger scroll indicator -->
-<div id="finger-indicator" style="
-  position:fixed;
-  top:30%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  z-index:999;
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  gap:6px;
-  pointer-events:none;">
-  <p style="
-    font-family:'Montserrat',sans-serif;
-    font-size:10px;
-    letter-spacing:3px;
-    color:#b5657a;
-    text-transform:uppercase;
-    margin:0;
-    opacity:0.8;">Scroll Down</p>
- <img src="images/finger-pointer.png"
-     style="width:50px;height:auto;animation:fingerBounce 1s ease-in-out infinite;display:block;">
- </div>
+  
 
   <!-- SOUND BUTTON -->
   <button class="sound-btn" onclick="toggleSound()" id="soundBtn">
@@ -1158,7 +1136,24 @@ footer {
        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
   <span style="display:none;font-size:42px;color:#c9a84c;">♡</span>
 </div>
-
+</div>
+<!-- Scroll indicator below VD symbol -->
+<div id="scroll-indicator-2" style="
+  text-align:center;
+  margin-top:8px;
+  animation:scrollBounce 1.5s ease-in-out infinite;
+  display:none;
+  opacity:0;
+  transition:opacity 0.5s ease;">
+  <p style="
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#b5657a;
+    text-transform:uppercase;
+    margin:0;
+    opacity:0.7;">scroll</p>
+  <span style="font-size:16px;color:#b5657a;opacity:0.7;">👇</span>
 </div>
 
 <!-- Couple image — zoom out on top -->
@@ -1830,32 +1825,54 @@ function submitRSVP() {
 /* ========================= */
 /* FINGER SCROLL INDICATOR   */
 /* ========================= */
-function initFingerIndicator() {
+  function initFingerIndicator() {
   const finger = document.getElementById('finger-indicator');
-  if (!finger) return;
+  const scrollIndicator2 = document.getElementById('scroll-indicator-2');
+  if (!finger && !scrollIndicator2) return;
 
   let scrollTimer = null;
   let shown = false;
   let dismissed = false;
 
-  // Show finger after 3 seconds if user hasn't scrolled
+  // Show both after 3 seconds if user hasn't scrolled
   scrollTimer = setTimeout(() => {
     if (!dismissed) {
-      finger.style.display = 'flex';
-      shown = true;
+      // Show finger indicator
+      if(finger) {
+        finger.style.display = 'flex';
+        shown = true;
+      }
+      // Show scroll indicator 2
+      if(scrollIndicator2) {
+        scrollIndicator2.style.display = 'block';
+        setTimeout(() => {
+          scrollIndicator2.style.opacity = '1';
+        }, 50);
+        shown = true;
+      }
     }
   }, 3000);
 
-  // Hide when user starts scrolling
-  window.addEventListener('scroll', () => {
+  // Hide both when user starts scrolling
+  function hideAll() {
     if (shown && !dismissed) {
       dismissed = true;
-      finger.classList.add('fade-out');
 
-      // Remove from DOM after fade
-      setTimeout(() => {
-        finger.style.display = 'none';
-      }, 500);
+      // Hide finger
+      if(finger) {
+        finger.classList.add('fade-out');
+        setTimeout(() => {
+          finger.style.display = 'none';
+        }, 500);
+      }
+
+      // Hide scroll indicator 2
+      if(scrollIndicator2) {
+        scrollIndicator2.style.opacity = '0';
+        setTimeout(() => {
+          scrollIndicator2.style.display = 'none';
+        }, 500);
+      }
     }
 
     // Clear timer if user scrolls before 3 seconds
@@ -1864,21 +1881,9 @@ function initFingerIndicator() {
       scrollTimer = null;
       dismissed = true;
     }
-  }, { once: false });
+  }
 
-  // Also hide on touch start (mobile)
-  window.addEventListener('touchstart', () => {
-    if (scrollTimer) {
-      clearTimeout(scrollTimer);
-      dismissed = true;
-    }
-    if (shown) {
-      finger.classList.add('fade-out');
-      setTimeout(() => {
-        finger.style.display = 'none';
-      }, 500);
-    }
-  }, { once: false });
+  window.addEventListener('scroll', hideAll, { passive: true });
 }
 
 </script>
