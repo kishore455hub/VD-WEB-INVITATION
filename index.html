@@ -846,9 +846,10 @@ body {
 /* ========================= */
 #rsvp {
   background: var(--rose-pale);
-  padding: 0 0 40px;
+  padding: 0 16px 40px;
   text-align: center;
 }
+
 .rsvp-image-top {
   width: 100%;
   max-width: 340px;
@@ -875,8 +876,10 @@ body {
 }
 
 .rsvp-form {
-  padding: 0 20px;
+  padding: 0;
   text-align: left;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .form-group {
   margin-bottom: 18px;
@@ -887,6 +890,7 @@ body {
   color: var(--text);
   display: block;
   margin-bottom: 8px;
+  padding-left: 4px;
 }
 .form-input, .form-textarea {
   width: 100%;
@@ -1480,62 +1484,60 @@ footer {
   <!-- RSVP                 -->
   <!-- ==================== -->
   <section id="rsvp">
-    <!-- 📸 Replace with your couple photo: images/rsvp-couple.jpg -->
-    <div style="position:relative;overflow:hidden;">
-      <img src="images/rsvp-couple.jpg"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-           style="width:100%;max-height:260px;object-fit:cover;display:block;border-radius:16px 16px 0 0;">
-      <div style="display:none;height:220px;background:#fce8ee;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#b5657a;font-family:'Montserrat',sans-serif;font-size:12px;border-radius:16px 16px 0 0;">
-        📸 <strong>images/rsvp-couple.jpg</strong>
+  <!-- 📸 Replace with your couple photo: images/rsvp-couple.jpg -->
+  <div style="position:relative;overflow:hidden;">
+    <img src="images/rsvp-couple.jpg"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+         style="width:100%;max-height:260px;object-fit:cover;display:block;border-radius:16px 16px 0 0;">
+    <div style="display:none;height:220px;background:#fce8ee;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#b5657a;font-family:'Montserrat',sans-serif;font-size:12px;border-radius:16px 16px 0 0;">
+      📸 <strong>images/rsvp-couple.jpg</strong>
+    </div>
+  </div>
+
+  <h2 class="rsvp-title">RSVP</h2>
+  <div class="floral-divider" style="margin:0 20px 8px;">✿</div>
+  <p class="rsvp-subtitle">We would be honored by your presence as we begin our new life together.</p>
+
+  <form class="rsvp-form" name="rsvp" method="POST" data-netlify="true" action="/">
+    <input type="hidden" name="form-name" value="rsvp">
+
+    <div class="form-group">
+      <label class="form-label">Full Name</label>
+      <input class="form-input" type="text" name="full-name"
+             placeholder="Enter your full name" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Village / Area</label>
+      <input class="form-input" type="text" name="village"
+             placeholder="Enter your village or area" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Will you be attending?</label>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="attending" value="Yes, I'll be there!"> Yes, I'll be there!
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="attending" value="No, Sorry"> No, Sorry
+        </label>
       </div>
     </div>
 
-    <h2 class="rsvp-title">RSVP</h2>
-    <div class="floral-divider" style="margin:0 20px 8px;">✿</div>
-    <p class="rsvp-subtitle">We would be honored by your presence as we begin our new life together.</p>
-<form class="rsvp-form" name="rsvp" method="POST" data-netlify="true" action="/"></form>
- 
-  <input type="hidden" name="form-name" value="rsvp">
-
-  <div class="form-group">
-    <label class="form-label">Full Name</label>
-    <input class="form-input" type="text" name="full-name" 
-           placeholder="Enter your full name" required>
-  </div>
-
-  <div class="form-group">
-    <label class="form-label">Village / Area</label>
-    <input class="form-input" type="text" name="village" 
-           placeholder="Enter your village or area" required>
-  </div>
-
-  <div class="form-group">
-    <label class="form-label">Will you be attending?</label>
-    <div class="radio-group">
-      <label class="radio-option">
-        <input type="radio" name="attending" value="Yes, I'll be there!"> Yes, I'll be there!
-      </label>
-      <label class="radio-option">
-        <input type="radio" name="attending" value="No, Sorry"> No, Sorry
-      </label>
+    <div class="form-group">
+      <label class="form-label">Message (Optional)</label>
+      <textarea class="form-textarea" name="message"
+                placeholder="Leave a message for the couple"></textarea>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label class="form-label">Message (Optional)</label>
-    <textarea class="form-textarea" name="message" 
-              placeholder="Leave a message for the couple"></textarea>
-  </div>
+    <button type="submit" class="send-btn">
+      ✈ Send RSVP
+    </button>
 
-  <button type="submit" class="send-btn">
-    ✈ Send RSVP
-  </button>
-
-</form>
-</section>   
-
-</form>
+  </form>
 </section>
+
 
   <!-- ==================== -->
   <!-- FOOTER               -->
