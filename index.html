@@ -1499,35 +1499,48 @@ footer {
     <div class="floral-divider" style="margin:0 20px 8px;">✿</div>
     <p class="rsvp-subtitle">We would be honored by your presence as we begin our new life together.</p>
 
-    <div class="rsvp-form">
-      <div class="form-group">
-        <label class="form-label">Full Name</label>
-        <input class="form-input" type="text" placeholder="Enter your full name">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="Enter your email">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Will you be attending?</label>
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="attend" value="yes"> Joyfully Accept
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="attend" value="no"> Regretfully Decline
-          </label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Message (Optional)</label>
-        <textarea class="form-textarea" placeholder="Leave a message for the couple"></textarea>
-      </div>
-      <button class="send-btn" onclick="submitRSVP()">
-        ✈ Send RSVP
-      </button>
+ <form class="rsvp-form" name="rsvp" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="rsvp">
+
+  <div class="form-group">
+    <label class="form-label">Full Name</label>
+    <input class="form-input" type="text" name="full-name" 
+           placeholder="Enter your full name" required>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Village / Area</label>
+    <input class="form-input" type="text" name="village" 
+           placeholder="Enter your village or area" required>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Will you be attending?</label>
+    <div class="radio-group">
+      <label class="radio-option">
+        <input type="radio" name="attending" value="Yes, I'll be there!"> Yes, I'll be there!
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="attending" value="No, Sorry"> No, Sorry
+      </label>
     </div>
-  </section>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Message (Optional)</label>
+    <textarea class="form-textarea" name="message" 
+              placeholder="Leave a message for the couple"></textarea>
+  </div>
+
+  <button type="submit" class="send-btn">
+    ✈ Send RSVP
+  </button>
+
+</form>
+</section>   
+
+</form>
+</section>
 
   <!-- ==================== -->
   <!-- FOOTER               -->
