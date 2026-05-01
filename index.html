@@ -1544,7 +1544,7 @@ footer {
   <!-- ==================== -->
   <footer>
     <p class="footer-names">Vara Prasad <span>&amp;</span> Daya Mani</p>
-    <p class="footer-date">Christ is the cornerstone and the cornerstone was laid on 25 Jan 2026</p>
+    <p class="footer-date"></p>
     <div class="footer-watermark">Vara Prasad &amp; Daya Mani</div>
     <p class="footer-made-by">This invite is made by</p>
     <p class="footer-made-by-name">Kishore</p>
@@ -1781,6 +1781,29 @@ setInterval(updateCountdown, 1000);
 /* ====================== */
 /* SOUND TOGGLE           */
 /* ====================== */
+/* ========================= */
+/* STOP MUSIC WHEN APP HIDDEN */
+/* ========================= */
+document.addEventListener('visibilitychange', () => {
+  const music = document.getElementById('weddingMusic');
+  const btn = document.getElementById('soundBtn');
+
+  if (document.hidden) {
+    // User switched app or minimized — pause music
+    music.pause();
+    if(btn) {
+      btn.innerHTML = '<span>♪</span> SOUND OFF';
+      btn.style.background = '#b5657a';
+    }
+    soundOn = false;
+  } else {
+    // User came back — resume music
+    if(!document.hidden && soundOn === false) {
+      // Don't auto resume — let user press button
+    }
+  }
+});
+
 function stopMusic() {
   const music = document.getElementById('weddingMusic');
   const btn = document.getElementById('soundBtn');
