@@ -120,8 +120,8 @@ body {
 /* ===== FADE IN ANIMATION ===== */
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50%       { transform: translateY(8px); opacity: 0.5; }
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
 }
 
 /* ===== HERO ENTRANCE ANIMATIONS ===== */
@@ -1056,7 +1056,7 @@ footer {
   <div class="envelope-wrapper" style="width:100%;height:100%;position:relative;">
 
     <!-- Real envelope poster image -->
-    <img src="images/envelope-poster.jpg"
+    <img src="images/envelope-poster.webp"
          style="width:100%;height:100%;object-fit:cover;display:block;">
 
     <!-- Wax seal clickable overlay — positioned on top of the stamp in image -->
@@ -1108,12 +1108,12 @@ footer {
     <div class="hero-floral-top" style="position:relative;width:100%;height:130px;">
 
   <!-- Left corner flower -->
-  <img src="images/corner-flower-left.png"
+  <img src="images/corner-flower-left.webp"
        style="position:absolute;top:0;left:0;width:160px;height:auto;">
 
   <!-- Center Jesus Cross Symbol -->
   <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);text-align:center;">
-    <img src="images/cross.png"
+    <img src="images/cross.webp"
          style="width:50px;height:auto;"
          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <!-- Fallback if no image -->
@@ -1121,7 +1121,7 @@ footer {
   </div>
 
   <!-- Right corner flower -->
-  <img src="images/corner-flower-right.png"
+  <img src="images/corner-flower-right.webp"
        style="position:absolute;top:0;right:0;width:160px;height:auto;">
 
 </div>
@@ -1151,13 +1151,13 @@ footer {
   transition:opacity 0.5s ease;">
   <p style="
     font-family:'Montserrat',sans-serif;
-    font-size:10px;
+    font-size:12px;
     letter-spacing:3px;
     color:#b5657a;
     text-transform:uppercase;
     margin:0;
     opacity:0.7;">scroll</p>
-  <span style="font-size:16px;color:#b5657a;opacity:0.7;">👇</span>
+  <span style="font-size:18px;color:#b5657a;opacity:0.8;">👇</span>
 </div>
 
 <!-- Couple image — zoom out on top -->
@@ -1167,7 +1167,7 @@ footer {
     <div class="couple-illustration fade-up" style="width:100%;margin-top:-10px;margin-bottom:-8px;overflow:hidden;">
       <!-- 📸 Replace with your couple photo -->
       <!-- Put your photo in images/couple.jpg -->
-      <img src="images/couple.jpg"
+      <img src="images/couple.webp"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
            style="width:150%;display:block;margin-top:50px;margin-left:-22%;object-fit:cover;"
       <div style="display:none;background:#f5e8f0;padding:40px 20px;text-align:center;color:#b5657a;font-family:'Montserrat',sans-serif;font-size:13px;">
@@ -1204,7 +1204,7 @@ footer {
   <section id="save-date">
     <!-- Floral bunch -->
     <div class="floral-bunch fade-up" style="text-align:center;margin-bottom:20px;">
-      <img src="images/floral-bunch.png"
+      <img src="images/floral-bunch.webp"
            style="width:200px;height:auto;display:inline-block;"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <!-- Fallback if no image -->
@@ -1262,7 +1262,7 @@ footer {
   <section id="couple">
     <!-- Floral divider top -->
     <div class="floral-bunch fade-up" style="text-align:center;margin-bottom:20px;">
-      <img src="images/floral-bunch.png"
+      <img src="images/floral-bunch.webp"
            style="width:200px;height:auto;display:inline-block;"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <!-- Fallback if no image -->
@@ -1306,7 +1306,7 @@ footer {
     <div class="event-card fade-up">
       <!-- 📸 Replace with your Madhurumveppu photo: images/event-madhurumveppu.jpg -->
       <div style="position:relative;">
-        <img src="images/event-madhurumveppu.jpg"
+        <img src="images/event-madhurumveppu.webp"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
              style="width:100%;height:200px;object-fit:cover;display:block;">
         <div style="display:none;height:200px;background:#d4f0d8;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#2d5a27;font-family:'Montserrat',sans-serif;font-size:12px;">
@@ -1328,7 +1328,7 @@ footer {
     <div class="event-card fade-up">
       <!-- 📸 Replace with your Holy Matrimony photo: images/event-matrimony.jpg -->
       <div style="position:relative;">
-        <img src="images/event-matrimony.jpg"
+        <img src="images/event-matrimony.webp"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
              style="width:100%;height:200px;object-fit:cover;display:block;">
         <div style="display:none;height:200px;background:#f0e8d8;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#8b6340;font-family:'Montserrat',sans-serif;font-size:12px;">
@@ -1348,7 +1348,7 @@ footer {
     <div class="event-card fade-up">
       <!-- 📸 Replace with your Reception photo: images/event-reception.jpg -->
       <div style="position:relative;">
-        <img src="images/event-reception.jpg"
+        <img src="images/event-reception.webp"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
              style="width:100%;height:200px;object-fit:cover;display:block;">
         <div style="display:none;height:200px;background:#f5e0e0;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#8b1a1a;font-family:'Montserrat',sans-serif;font-size:12px;">
@@ -1376,31 +1376,31 @@ footer {
     <div class="gallery-grid">
       <!-- 📸 images/gallery-1.jpg -->
       <div class="gallery-item fade-up">
-        <img src="images/gallery-1.jpg"
+        <img src="images/gallery-1.webp"
              onerror="this.style.background='#e8d4dc';this.style.minHeight='160px';this.alt='📸 gallery-1.jpg'"
              style="width:100%;height:200px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-2.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
-        <img src="images/gallery-2.jpg"
+        <img src="images/gallery-2.webp"
              onerror="this.style.background='#d8d4ec';this.style.minHeight='160px';this.alt='📸 gallery-2.jpg'"
              style="width:100%;height:160px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-3.jpg -->
       <div class="gallery-item fade-up">
-        <img src="images/gallery-3.jpg"
+        <img src="images/gallery-3.webp"
              onerror="this.style.background='#f5d4d4';this.style.minHeight='160px';this.alt='📸 gallery-3.jpg'"
              style="width:100%;height:220px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-4.jpg -->
       <div class="gallery-item fade-up" style="margin-top:20px;">
-        <img src="images/gallery-4.jpg"
+        <img src="images/gallery-4.webp"
              onerror="this.style.background='#f5d4e0';this.style.minHeight='180px';this.alt='📸 gallery-4.jpg'"
              style="width:100%;height:160px;object-fit:cover;display:block;">
       </div>
       <!-- 📸 images/gallery-5.jpg — full width spanning both columns -->
       <div class="gallery-item fade-up" style="grid-column: 1 / -1;">
-        <img src="images/gallery-5.jpg"
+        <img src="images/gallery-5.webp"
              onerror="this.style.background='#e8d4e8';this.style.minHeight='300px';this.alt='📸 gallery-5.jpg'"
              style="width:100%;height:400px;object-fit:cover;display:block;">
       </div>
@@ -1498,7 +1498,7 @@ footer {
   <div class="floral-divider" style="margin:0 20px 8px;">✿</div>
   <p class="rsvp-subtitle">We would be honored by your presence as we begin our new life together.</p>
 
-  <form class="rsvp-form" name="rsvp" method="POST" data-netlify="true" action="/">
+  <form class="rsvp-form" name="rsvp" method="POST" data-netlify="true" id="rsvp-form">
     <input type="hidden" name="form-name" value="rsvp">
 
     <div class="form-group">
@@ -1831,21 +1831,43 @@ function toggleSound() {
 /* ====================== */
 /* RSVP SUBMIT            */
 /* ====================== */
-function submitRSVP() {
-  const name  = document.querySelector('.rsvp-form input[type="text"]').value.trim();
-  const email = document.querySelector('.rsvp-form input[type="email"]').value.trim();
-  if (!name || !email) {
-    alert('Please fill in your name and email.');
-    return;
-  }
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('rsvp-form');
+  if (!form) return;
 
-  // Reset form
-  document.querySelectorAll('.rsvp-form input, .rsvp-form textarea').forEach(el => el.value = '');
-  document.querySelectorAll('.rsvp-form input[type="radio"]').forEach(el => el.checked = false);
-}
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validate name
+    const name = form.querySelector('input[name="full-name"]').value.trim();
+    const village = form.querySelector('input[name="village"]').value.trim();
+    if (!name || !village) {
+      alert('Please fill in your name and village!');
+      return;
+    }
+
+    try {
+      // Send to Netlify
+      const formData = new FormData(form);
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      // Show toast
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+
+      // Reset form
+      form.reset();
+
+    } catch (error) {
+      alert('Something went wrong. Please try again!');
+    }
+  });
+});
 
 /* ========================= */
 /* FINGER SCROLL INDICATOR   */
